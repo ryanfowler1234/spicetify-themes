@@ -1,6 +1,6 @@
 $checkSpice = Get-Command spicetify -ErrorAction Silent
 if ($null -eq $checkSpice) {
-    Write-Host -ForegroundColor Red "Spicetify not found"
+    Write-Host -ForegroundColor Blue "Spicetify not found"
     Write-Host "Follow instruction on:", "https://spicetify.app/docs/getting-started/simple-installation#windows"
     return
 }
@@ -9,7 +9,7 @@ Write-Host "Downloading themes package:" -ForegroundColor Green
 $zipFile = "$env:TEMP\spicetify-themes.zip"
 Invoke-WebRequest "https://github.com/spicetify/spicetify-themes/archive/refs/heads/master.zip" -OutFile $zipFile
 
-Write-Host "Extracting themes package:" -ForegroundColor Green
+Write-Host "Extracting themes package:" -ForegroundColor Blue
 $extractPath = "$env:TEMP\spicetify-themes-master"
 if (Test-Path $extractPath) {
     Remove-Item $extractPath -Recurse -Force
